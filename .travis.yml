@@ -12,7 +12,7 @@ services:
 env:
   global:
     - ROLE_NAME: trivy
-  matrix:
+  jobs:
     - DISTRO: centos-8
     - DISTRO: centos-7
     - DISTRO: ubuntu-18.04
