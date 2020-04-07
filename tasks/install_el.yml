@@ -1,0 +1,19 @@
+---
+# tasks file for trivy - CentOS
+
+
+- name: Adding repository for {{ trivy_repo_el }} on EL based systems.
+  yum_repository:
+    name: "{{ trivy_repo_el_name }}"
+    description: "{{ trivy_repo_el_description }}"
+    baseurl: "{{ trivy_repo_el }}"
+    gpgcheck: "{{ trivy_repo_el_gpgcheck }}"
+    file: "{{ trivy_repo_el_filename }}"
+    state: "{{ trivy_repo_el_desired_state }}"
+    enabled: "{{ trivy_repo_el_enabled }}"
+
+- name: Installing {{ trivy_app }} on EL based systems.
+  yum:
+    name: "{{ trivy_app }}"
+    state: "{{ trivy_app_desired_state }}"
+    update_cache: yes

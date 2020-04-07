@@ -1,0 +1,24 @@
+---
+# defaults file for trivy
+
+trivy_app: trivy
+trivy_app_desired_state: present
+
+# Debian family based
+trivy_debian_pre_reqs:
+  - apt-transport-https
+  - gnupg
+trivy_debian_pre_reqs_desired_state: present
+trivy_repo_debian_gpg_key: https://aquasecurity.github.io/trivy-repo/deb/public.key
+trivy_repo_debian: "deb https://aquasecurity.github.io/trivy-repo/deb {{ ansible_lsb['codename'] }} main"
+trivy_repo_debian_filename: "{{ trivy_app }}"
+trivy_repo_debian_desired_state: present
+
+# EL family based
+trivy_repo_el: https://aquasecurity.github.io/trivy-repo/rpm/releases/$releasever/$basearch/
+trivy_repo_el_name: trivy
+trivy_repo_el_description: Trivy repository
+trivy_repo_el_gpgcheck: no
+trivy_repo_el_enabled: yes
+trivy_repo_el_filename: trivy
+trivy_repo_el_desired_state: present
