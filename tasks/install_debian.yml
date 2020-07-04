@@ -1,19 +1,19 @@
 ---
-# tasks file for trivy - Debian
+# tasks file for trivy - Debian Family
 
-- name: Installing {{ trivy_debian_pre_reqs }} on Debian based systems.
+- name: Debian Family | Installing {{ trivy_debian_pre_reqs }}
   apt:
     name: "{{ trivy_debian_pre_reqs }}"
     state: "{{ trivy_debian_pre_reqs_desired_state }}"
     force_apt_get: yes
     update_cache: yes
 
-- name: Add gpg signing key for {{ trivy_app }} on Debian based systems.
+- name: Debian Family | Add gpg signing key for {{ trivy_app }}
   apt_key:
     url: "{{ trivy_repo_debian_gpg_key }}"
     state: present
 
-- name: Adding repository "{{ trivy_repo_debian }}" on Debian based systems.
+- name: Debian Family | Adding repository "{{ trivy_repo_debian }}"
   apt_repository:
     repo: "{{ trivy_repo_debian }}"
     state: "{{ trivy_repo_debian_desired_state }}"
@@ -21,7 +21,7 @@
     codename: "{{ ansible_lsb['codename'] }}"
     update_cache: yes
 
-- name: Installing {{ trivy_app }} on Debian based systems.
+- name: Debian Family | Installing {{ trivy_app }}
   apt:
     name: "{{ trivy_app }}"
     state: "{{ trivy_app_desired_state }}"

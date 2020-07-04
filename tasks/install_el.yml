@@ -1,8 +1,8 @@
 ---
-# tasks file for trivy - CentOS
+# tasks file for trivy - EL Family
 
 
-- name: Adding repository for {{ trivy_repo_el }} on EL based systems.
+- name: EL Family | Adding repository for {{ trivy_repo_el }}
   yum_repository:
     name: "{{ trivy_repo_el_name }}"
     description: "{{ trivy_repo_el_description }}"
@@ -12,7 +12,7 @@
     state: "{{ trivy_repo_el_desired_state }}"
     enabled: "{{ trivy_repo_el_enabled }}"
 
-- name: Installing {{ trivy_app }} on EL based systems.
+- name: EL Family | Installing {{ trivy_app }}
   yum:
     name: "{{ trivy_app }}"
     state: "{{ trivy_app_desired_state }}"
