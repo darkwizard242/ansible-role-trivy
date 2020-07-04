@@ -2,7 +2,7 @@
 
 # Ansible Role: trivy
 
-Role to install (_by default_) [trivy](https://github.com/aquasecurity/trivy) package or uninstall (_if passed as var_) on Debian based systems and EL based systems.
+Role to install (_by default_) [trivy](https://github.com/aquasecurity/trivy) package or uninstall (_if passed as var_) on Debian based systems and EL based systems. Trivy is a comprehensive and easy to use vulnerability scanner for containers.
 
 ## Requirements
 
@@ -68,17 +68,17 @@ For default behaviour of role (i.e. installation of **trivy** package) in ansibl
     - darkwizard242.trivy
 ```
 
-For customizing behavior of role (i.e. utilizing an existing or creating a new user to be added to trivy group - example shown below is using `darkwizard242` as a user) in ansible playbooks.
+For customizing behavior of role (i.e. installing latest verion of **trivy**) in ansible playbooks.
 
 ```yaml
 - hosts: servers
   roles:
     - darkwizard242.trivy
   vars:
-    trivy_user: darkwizard242
+    trivy_apps_desired_state: latest
 ```
 
-For customizing behavior of role (i.e. un-installation of **trivy-ce, trivy-ce-cli, containerd.io** packages) in ansible playbooks.
+For customizing behavior of role (i.e. un-installation of **trivy** packages) in ansible playbooks.
 
 ```yaml
 - hosts: servers
