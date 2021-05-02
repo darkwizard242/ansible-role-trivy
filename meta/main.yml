@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   role_name: trivy
-  author: Ali Muhammad
+  author: darkwizard242
   description: Installs/Uninstalls Trivy for vulnerability scanning of containers.
   company: none
   license: MIT
