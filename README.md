@@ -36,23 +36,23 @@ trivy_repo_el_desired_state: present
 
 ### Variables table:
 
-Variable                            | Value (default)                                                                          | Description
------------------------------------ | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-trivy_app                           | trivy                                                                                    | Name of trivy application package require to be installed i.e. `trivy`
-trivy_app_desired_state             | present                                                                                  | State of the trivy_app package. Whether to install, verify if available or to uninstall (i.e. ansible apt module values: `present`, `latest`, or `absent`)
-trivy_debian_pre_reqs               | apt-transport-https, gnupg                                                               | Trivy recommends the installation of both these packages on Debian family systems and as such, they are considered pre-requisites.
-trivy_debian_pre_reqs_desired_state | present                                                                                  | Desired state for Trivy pre-requisite apps on Debian family systems.
-trivy_repo_debian_gpg_key           | <https://aquasecurity.github.io/trivy-repo/deb/public.key>                               | Trivy GPG key required on Debian family systems
-trivy_repo_debian                   | "deb <https://aquasecurity.github.io/trivy-repo/deb> {{ ansible_lsb['codename'] }} main" | Trivy repo URL for Debain family systems. Utilized facts such as `ansible_lsb['codename']`.
-trivy_repo_debain_filename          | trivy                                                                                    | Name of the repository file that will be stored at `/etc/apt/sources.list.d/` on Debian based systems.
-trivy_repo_debian_desired_state     | present                                                                                  | `present` indicates creating the repository file if it doesn't exist on Debian based systems. Alternative is `absent` (not recommended as it will prevent from installation of **trivy** package).
-trivy_repo_el                       | <https://aquasecurity.github.io/trivy-repo/rpm/releases/$releasever/$basearch/>          | Repository `baseurl` for Trivy on EL based systems.
-trivy_repo_el_name                  | trivy                                                                                    | Repository name for Trivy on EL based systems.
-trivy_repo_el_description           | Trivy repository                                                                         | Description to be added in EL based repository file for Trivy.
-trivy_repo_el_gpgcheck              | no                                                                                       | Boolean for whether to perform gpg check against Trivy on EL based systems.
-trivy_repo_el_enabled               | yes                                                                                      | Boolean to set so that Trivy repository is enabled on EL based systems.
-trivy_repo_el_filename              | trivy                                                                                    | Name of the repository file that will be stored at `/yum/sources.list.d/trivy.repo` on EL based systems.
-trivy_repo_el_desired_state         | present                                                                                  | `present` indicates creating the repository file if it doesn't exist on EL based systems. Alternative is `absent` (not recommended as it will prevent from installation of **trivy** package).
+Variable                            | Description
+----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+trivy_app                           | Name of trivy application package require to be installed i.e. `trivy`
+trivy_app_desired_state             | State of the trivy_app package. Whether to install, verify if available or to uninstall (i.e. ansible apt module values: `present`, `latest`, or `absent`)
+trivy_debian_pre_reqs               | Trivy recommends the installation of both these packages on Debian family systems and as such, they are considered pre-requisites.
+trivy_debian_pre_reqs_desired_state | Desired state for Trivy pre-requisite apps on Debian family systems.
+trivy_repo_debian_gpg_key           | Trivy GPG key required on Debian family systems
+trivy_repo_debian                   | Trivy repo URL for Debain family systems. Utilized facts such as `ansible_lsb['codename']`.
+trivy_repo_debain_filename          | Name of the repository file that will be stored at `/etc/apt/sources.list.d/` on Debian based systems.
+trivy_repo_debian_desired_state     | `present` indicates creating the repository file if it doesn't exist on Debian based systems. Alternative is `absent` (not recommended as it will prevent from installation of **trivy** package).
+trivy_repo_el                       | Repository `baseurl` for Trivy on EL based systems.
+trivy_repo_el_name                  | Repository name for Trivy on EL based systems.
+trivy_repo_el_description           | Description to be added in EL based repository file for Trivy.
+trivy_repo_el_gpgcheck              | Boolean for whether to perform gpg check against Trivy on EL based systems.
+trivy_repo_el_enabled               | Boolean to set so that Trivy repository is enabled on EL based systems.
+trivy_repo_el_filename              | Name of the repository file that will be stored at `/yum/sources.list.d/trivy.repo` on EL based systems.
+trivy_repo_el_desired_state         | `present` indicates creating the repository file if it doesn't exist on EL based systems. Alternative is `absent` (not recommended as it will prevent from installation of **trivy** package).
 
 ## Dependencies
 
@@ -94,4 +94,4 @@ For customizing behavior of role (i.e. un-installation of **trivy** packages) in
 
 ## Author Information
 
-This role was created by [Ali Muhammad](https://www.linkedin.com/in/ali-muhammad-759791130/).
+This role was created by [Ali Muhammad](https://www.alimuhammad.dev/).
