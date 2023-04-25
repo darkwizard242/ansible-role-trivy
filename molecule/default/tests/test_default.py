@@ -7,7 +7,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 PACKAGE = 'trivy'
-PACKAGE_BINARY = '/usr/local/bin/trivy'
+PACKAGE_BINARY = '/usr/bin/trivy'
 DEBIAN_REPO_FILE = '/etc/apt/sources.list.d/trivy.list'
 EL_REPO_FILE = '/etc/yum.repos.d/trivy.repo'
 
