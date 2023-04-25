@@ -2,19 +2,19 @@
 # tasks file for trivy - Debian/Ubuntu Family
 
 - name: Debian/Ubuntu Family | Installing {{ trivy_debian_pre_reqs }}
-  apt:
+  ansible.builtin.apt:
     name: "{{ trivy_debian_pre_reqs }}"
     state: "{{ trivy_debian_pre_reqs_desired_state }}"
     force_apt_get: yes
     update_cache: yes
 
 - name: Debian/Ubuntu Family | Add gpg signing key for {{ trivy_app }}
-  apt_key:
+  ansible.builtin.apt_key:
     url: "{{ trivy_repo_debian_gpg_key }}"
     state: present
 
 - name: Debian/Ubuntu Family | Adding repository {{ trivy_repo_debian }}
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: "{{ trivy_repo_debian }}"
     state: "{{ trivy_repo_debian_desired_state }}"
     filename: "{{ trivy_repo_debian_filename }}"
@@ -22,7 +22,7 @@
     update_cache: yes
 
 - name: Debian/Ubuntu Family | Installing {{ trivy_app }}
-  apt:
+  ansible.builtin.apt:
     name: "{{ trivy_app }}"
     state: "{{ trivy_app_desired_state }}"
     force_apt_get: yes
