@@ -3,7 +3,7 @@
 
 
 - name: EL Family | Adding repository for {{ trivy_repo_el }}
-  yum_repository:
+  ansible.builtin.yum_repository:
     name: "{{ trivy_repo_el_name }}"
     description: "{{ trivy_repo_el_description }}"
     baseurl: "{{ trivy_repo_el }}"
@@ -13,7 +13,7 @@
     enabled: "{{ trivy_repo_el_enabled }}"
 
 - name: EL Family | Installing {{ trivy_app }}
-  yum:
+  ansible.builtin.yum:
     name: "{{ trivy_app }}"
     state: "{{ trivy_app_desired_state }}"
     update_cache: yes
