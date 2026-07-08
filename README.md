@@ -22,7 +22,7 @@ trivy_debian_pre_reqs:
   - gnupg
 trivy_debian_pre_reqs_desired_state: present
 trivy_repo_debian_gpg_key: https://aquasecurity.github.io/trivy-repo/deb/public.key
-trivy_repo_debian: "deb https://aquasecurity.github.io/trivy-repo/deb {{ ansible_lsb['codename'] }} main"
+trivy_repo_debian: "deb https://aquasecurity.github.io/trivy-repo/deb generic main"
 trivy_repo_debian_filename: "{{ trivy_app }}"
 trivy_repo_debian_desired_state: present
 trivy_repo_el: https://aquasecurity.github.io/trivy-repo/rpm/releases/$releasever/$basearch/
@@ -43,7 +43,7 @@ trivy_app_desired_state             | State of the trivy_app package. Whether to
 trivy_debian_pre_reqs               | Trivy recommends the installation of both these packages on Debian family systems and as such, they are considered pre-requisites.
 trivy_debian_pre_reqs_desired_state | Desired state for Trivy pre-requisite apps on Debian family systems.
 trivy_repo_debian_gpg_key           | Trivy GPG key required on Debian family systems
-trivy_repo_debian                   | Trivy repo URL for Debain family systems. Utilized facts such as `ansible_lsb['codename']`.
+trivy_repo_debian                   | Trivy repo URL for Debain family systems.
 trivy_repo_debain_filename          | Name of the repository file that will be stored at `/etc/apt/sources.list.d/` on Debian based systems.
 trivy_repo_debian_desired_state     | `present` indicates creating the repository file if it doesn't exist on Debian based systems. Alternative is `absent` (not recommended as it will prevent from installation of **trivy** package).
 trivy_repo_el                       | Repository `baseurl` for Trivy on EL based systems.

@@ -18,7 +18,6 @@
     repo: "{{ trivy_repo_debian }}"
     state: "{{ trivy_repo_debian_desired_state }}"
     filename: "{{ trivy_repo_debian_filename }}"
-    codename: "{{ ansible_lsb['codename'] }}"
     update_cache: yes
 
 - name: Debian/Ubuntu Family | Installing {{ trivy_app }}
