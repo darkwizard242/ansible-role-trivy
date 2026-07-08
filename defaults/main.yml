@@ -10,7 +10,7 @@ trivy_debian_pre_reqs:
   - gnupg
 trivy_debian_pre_reqs_desired_state: present
 trivy_repo_debian_gpg_key: https://aquasecurity.github.io/trivy-repo/deb/public.key
-trivy_repo_debian: "deb https://aquasecurity.github.io/trivy-repo/deb {{ ansible_lsb['codename'] }} main"
+trivy_repo_debian: "deb https://aquasecurity.github.io/trivy-repo/deb generic main"
 trivy_repo_debian_filename: "{{ trivy_app }}"
 trivy_repo_debian_desired_state: present
 
